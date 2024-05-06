@@ -1,3 +1,4 @@
+
 package com.hong.backend.Controller;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class userController {
     @GetMapping("/hong")
     @Operation(summary = "用户信息测试")
-    public void user(){
+    public void user() {
         System.out.println("hello");
     }
 }
