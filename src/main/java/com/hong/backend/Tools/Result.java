@@ -45,5 +45,10 @@ public class Result<T> implements Serializable {
         return result;
     }
 
+//    //  错误返回状态
+//    public static <T> Result<T> fatal(String msg){
+//        Result r = error(msg);
+//    }
+
 }
 

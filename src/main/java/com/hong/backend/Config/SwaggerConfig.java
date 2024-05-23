@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SwaggerConfig {
-
     @Bean
     public OpenAPI springShopOpenAPI() {
         return new OpenAPI()
@@ -21,8 +20,6 @@ public class SwaggerConfig {
                 .externalDocs(new ExternalDocumentation()
                         .description("外部文档")
                         .url("https://springshop.wiki.github.org/docs"));
-
-
     }
 }
 
