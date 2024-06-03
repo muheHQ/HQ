@@ -1,6 +1,6 @@
 package com.hong.backend.Mapper;
 
-import com.hong.backend.model.pojo.Admin;
+import com.hong.backend.Model.pojo.Admin;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 

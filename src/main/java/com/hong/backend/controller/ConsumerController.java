@@ -2,10 +2,10 @@ package com.hong.backend.controller;
 
 
 import com.hong.backend.Tools.Result;
-import com.hong.backend.model.request.AdminRequest;
-import com.hong.backend.model.request.ConsumerRequest;
-import com.hong.backend.service.IConsumerService;
+import com.hong.backend.Model.request.ConsumerRequest;
+import com.hong.backend.Service.IConsumerService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/user")
 @Slf4j
-@CrossOrigin(origins = "http://localhost:8888", methods = {RequestMethod.POST}, allowedHeaders = {"Content-Type"})
+@Tag(name = "用户模块")
+//@CrossOrigin(origins = "http://localhost:8888", methods = {RequestMethod.POST}, allowedHeaders = {"Content-Type"})
 public class ConsumerController {
     @Autowired
     private IConsumerService iConsumerService;
@@ -30,6 +31,7 @@ public class ConsumerController {
      * @return
      */
     @PostMapping("/register")
+    @Operation(summary = "注册接口", description = "用户注册接口")
     public Result addUser(@RequestBody ConsumerRequest registerConsumerRequest){
         log.info("用户注册");
         return iConsumerService.addUser(registerConsumerRequest);
@@ -40,4 +42,6 @@ public class ConsumerController {
     public Result login(@RequestBody ConsumerRequest consumerRequest, HttpSession session){
         return iConsumerService.isLogin(consumerRequest,session);
     }
+
+
 }

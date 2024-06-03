@@ -1,6 +1,6 @@
 package com.hong.backend.Mapper;
 
-import com.hong.backend.model.pojo.Song;
+import com.hong.backend.Model.pojo.Song;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

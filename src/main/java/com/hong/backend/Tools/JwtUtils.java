@@ -1,10 +1,9 @@
 package com.hong.backend.Tools;
 
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -18,11 +17,27 @@ import java.util.Map;
  */
 @Data
 @Component
-@ConfigurationProperties(prefix = "jwt")
 public class JwtUtils {
+    private String secret = "123456";//密钥
+//    private  long expiration = 10000;//过期时间
+    private  long expiration = 43200000;//过期时间
 
-    private String secret;//密钥
-    private  long expiration;//过期时间
+    public static Boolean checkToken(String token) {
+        System.out.println(token);
+        if(token == null){
+            return false;
+        }
+
+        try {
+            Map<String, Object> claims = Jwts.parser()
+                    .parseClaimsJws(token)
+                    .getBody();
+        } catch (Exception e) {
+            return false;
+        }
+
+        return true;
+    }
 
 
     /**
@@ -31,7 +46,10 @@ public class JwtUtils {
      * @param subject 主题(用户类型)
      * @return token
      */
-    public  String generateToken(Map<String,Object> claims, String subject) {
+    public  String  generateToken(Map<String,Object> claims, String subject) {
+        System.out.println("--------------");
+        System.out.println(secret);
+        System.out.println(expiration);
         return Jwts.builder()
                 .setId(Claims.ID)//设置jti(JWT ID)：是JWT的唯一标识，根据业务需要，这个可以设置为一个不重复的值，主要用来作为令牌的唯一标识。
                 .setSubject("hong")//设置主题,一般为用户类型

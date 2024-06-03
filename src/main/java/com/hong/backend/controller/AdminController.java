@@ -2,9 +2,9 @@
 
 
     import com.hong.backend.Tools.Result;
-    import com.hong.backend.model.pojo.Register;
-    import com.hong.backend.model.request.AdminRequest;
-    import com.hong.backend.service.IAdminService;
+    import com.hong.backend.Model.pojo.Register;
+    import com.hong.backend.Model.request.AdminRequest;
+    import com.hong.backend.Service.IAdminService;
     import io.swagger.v3.oas.annotations.Operation;
     import io.swagger.v3.oas.annotations.tags.Tag;
     import jakarta.servlet.http.HttpSession;
@@ -25,8 +25,8 @@
      */
     @RestController
     @RequestMapping("/admin")
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @Tag(name = "用户登录", description = "测试模块")
+//    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @Tag(name = "管理员模块")
     public class AdminController {
 
         @Autowired
@@ -45,6 +45,7 @@
         }
 
         @PostMapping("/register")
+        @Operation(summary = "注册接口", description = "管理员注册接口")
         public Result register(@RequestBody Register register){
             return adminService.register(register);
         }

@@ -6,7 +6,7 @@ spring:
     username: root
     password: 514179
     driver-class-name:  com.mysql.cj.jdbc.Driver
-jwt:
-  secret: 123456 #密钥
-  expiration: 43200000 #过期时间 12h
+#jwt:
+#  secret: 123456 #密钥
+#  expiration: 43200000 #过期时间 12h
 
