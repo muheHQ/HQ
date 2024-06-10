@@ -93,6 +93,7 @@ public class ConsumerServiceImpl extends ServiceImpl<ConsumerMapper, Consumer> i
             Map<String, Object> data = new HashMap<>();
             data.put("username", username);
             data.put("token", token);
+            data.put("code", 200);
             return Result.success("登录成功", data);
         } else {
             return Result.error("用户名或密码错误");

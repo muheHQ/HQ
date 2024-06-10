@@ -4,7 +4,10 @@ import com.hong.backend.Model.pojo.Banner;
 import com.hong.backend.Mapper.BannerMapper;
 import com.hong.backend.Service.IBannerService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -17,4 +20,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class BannerServiceImpl extends ServiceImpl<BannerMapper, Banner> implements IBannerService {
 
+    @Autowired
+    private BannerMapper bannerMapper;
+
+//  TODO 这里可以用缓存
+    @Override
+    public List<Banner> getAll() {
+        // 不带任何条件查询 检索所有消息
+        return bannerMapper.selectList(null);
+    }
 }

@@ -40,8 +40,8 @@ public class ConsumerController {
     @PostMapping("/login/status")
     @Operation(summary = "登录接口", description = "用户登录接口")
     public Result login(@RequestBody ConsumerRequest consumerRequest, HttpSession session){
+        log.info("用户登录");
         return iConsumerService.isLogin(consumerRequest,session);
     }
-
 
 }

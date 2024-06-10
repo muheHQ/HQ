@@ -3,6 +3,8 @@ package com.hong.backend.Service;
 import com.hong.backend.Model.pojo.Banner;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IBannerService extends IService<Banner> {
 
+    List<Banner> getAll();
 }

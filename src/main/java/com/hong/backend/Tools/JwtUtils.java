@@ -47,9 +47,9 @@ public class JwtUtils {
      * @return token
      */
     public  String  generateToken(Map<String,Object> claims, String subject) {
-        System.out.println("--------------");
-        System.out.println(secret);
-        System.out.println(expiration);
+//        System.out.println("--------------");
+//        System.out.println(secret);
+//        System.out.println(expiration);
         return Jwts.builder()
                 .setId(Claims.ID)//设置jti(JWT ID)：是JWT的唯一标识，根据业务需要，这个可以设置为一个不重复的值，主要用来作为令牌的唯一标识。
                 .setSubject("hong")//设置主题,一般为用户类型
